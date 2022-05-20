@@ -60,6 +60,12 @@ Luego de añadir el conjunto, se desmarcará los dos vertices que formán la ult
 |----------------------|--------------------------------|
 |![](./assets/grafo2.png)|![](./assets/emp2.png)|
 
+<hr>
+
+|<center>Grafo</center>|<center>Emparejamientos</center>|
+|----------------------|--------------------------------|
+|![](./assets/grafo3.png)|![](./assets/emp3.png)|
+
 
 
 
