@@ -1,7 +1,7 @@
-public class Par{
+public class Arista{
     private int a, b;
 
-    public Par(int a, int b) {
+    public Arista(int a, int b) {
         this.a = a;
         this.b = b;
     }
@@ -15,8 +15,8 @@ public class Par{
     }
 
     public boolean equals(Object o){
-        if(o instanceof Par){
-            Par otro = (Par)o;
+        if(o instanceof Arista){
+            Arista otro = (Arista)o;
             return (a == otro.a && b == otro.b) || (a == otro.b && b == otro.a);
         }
         return false;

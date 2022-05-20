@@ -29,28 +29,28 @@ public class Grafo{
         cantAristas++;
     }
 
-    public ArrayList<ArrayList<Par>> emparejamientos() {
-    	ArrayList<ArrayList<Par>> res = new ArrayList<ArrayList<Par>>();
-    	ArrayList<Par> arr = new ArrayList<Par>();
+    public ArrayList<ArrayList<Arista>> emparejamientos() {
+    	ArrayList<ArrayList<Arista>> res = new ArrayList<ArrayList<Arista>>();
+    	ArrayList<Arista> arr = new ArrayList<Arista>();
     	boolean[] vis = new boolean[cantVertices];
     	for(Integer v : grafo.keySet()) {
-    		emparejar(v, arr, res, vis);
+    	   emparejar(v, arr, res, vis);
     	}
     	return res;
     }
 
-    private void emparejar(int v, ArrayList<Par> arr, ArrayList<ArrayList<Par>> res, boolean[] visitados) {
+    private void emparejar(int v, ArrayList<Arista> arr, ArrayList<ArrayList<Arista>> res, boolean[] visitados) {
     	for(Integer u : grafo.get(v)) {
 			if(!visitados[u]) {
 				visitados[v] = true;
 				visitados[u] = true;
-				arr.add(new Par(v, u));
+				arr.add(new Arista(v, u));
 				for(int i=0;i<cantVertices;i++){
 					if(!visitados[i]) {
 						emparejar(i, arr, res, visitados);
 					}
 				}
-				if(!sePuede(visitados) && !contains(arr, res)) res.add((ArrayList<Par>)arr.clone());
+				if(!sePuede(visitados) && !contains(arr, res)) res.add((ArrayList<Arista>)arr.clone());
 				visitados[v] = false;
 				visitados[u] = false;
 				arr.remove(arr.size() - 1);
@@ -69,11 +69,11 @@ public class Grafo{
         return false;
     }
 
-    private boolean contains(ArrayList<Par> arr, ArrayList<ArrayList<Par>> res) {
-    	for(ArrayList<Par> c : res) {
+    private boolean contains(ArrayList<Arista> arr, ArrayList<ArrayList<Arista>> res) {
+    	for(ArrayList<Arista> c : res) {
     		if(arr.size() == c.size()) {
-    			ArrayList<Par> aux = (ArrayList<Par>)arr.clone();
-    			for(Par p : c) {
+    			ArrayList<Arista> aux = (ArrayList<Arista>)arr.clone();
+    			for(Arista p : c) {
     				if(aux.contains(p)) {
     					aux.remove(p);
     				}
